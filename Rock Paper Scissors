@@ -1,0 +1,46 @@
+                                                                              #Rock Paper Scissor
+import random
+your_wins = 0
+comp_wins = 0
+bari = 1
+options = ["rock", "paper", "scissor", "quit"]
+comp_op = ["rock", "paper", "scissor"]
+while bari <=3:
+    bari +=1
+    choice = input("Choose one (Rock, Paper, Scissor, or Quit): ").lower()
+    if choice not in options:
+        continue
+
+    if choice == "quit":
+        break
+
+    if choice in comp_op:
+        random1 = random.randint(0, 2)
+        comp_choice = comp_op[random1]
+        print("Computer's choice: ", comp_choice)
+
+        if choice == "rock" and comp_choice == "scissor":
+            your_wins+=1
+
+        if choice == "scissor" and comp_choice == "paper":
+            your_wins+=1
+
+        if choice == "paper" and comp_choice == "rock":
+            your_wins+=1
+
+        if choice == "rock" and comp_choice == "paper":
+            comp_wins+=1
+
+        if choice == "scissor" and comp_choice == "rock":
+            comp_wins += 1
+
+        if choice == "paper" and comp_choice == "scissor":
+            comp_wins += 1
+
+
+print("Your Wins: ", your_wins)
+print("Comp Wins: ", comp_wins)
+if comp_wins > your_wins:
+    print("Comp Won")
+if your_wins > comp_wins:
+    print("You Won")
